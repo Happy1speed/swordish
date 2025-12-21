@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.happyspeed.swordish.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemsMixin",
+    "PlayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": true,
+  "values": [
+    "swordish:golden_glaive",
+    "swordish:iron_glaive",
+    "swordish:diamond_glaive",
+    "swordish:netherite_glaive",
+    "swordish:stone_glaive"
+  ]
+}

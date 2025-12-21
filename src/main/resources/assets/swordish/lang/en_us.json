@@ -1,0 +1,27 @@
+{
+  "itemGroup.swordish": "Swordish",
+
+  "swordish.configuration.title": "Swordish Configs",
+
+  "item.swordish.golden_halberd" : "Golden Halberd",
+  "item.swordish.golden_glaive" : "Golden Glaive",
+  "item.swordish.golden_dualblade" : "Golden Dualblade",
+
+  "item.swordish.stone_halberd" : "Stone Halberd",
+  "item.swordish.stone_glaive" : "Stone Glaive",
+  "item.swordish.stone_dualblade" : "Stone Dualblade",
+
+  "item.swordish.iron_halberd" : "Iron Halberd",
+  "item.swordish.iron_glaive" : "Iron Glaive",
+  "item.swordish.iron_dualblade" : "Iron Dualblade",
+
+  "item.swordish.diamond_halberd" : "Diamond Halberd",
+  "item.swordish.diamond_glaive" : "Diamond Glaive",
+  "item.swordish.diamond_dualblade" : "Diamond Dualblade",
+
+  "item.swordish.netherite_halberd" : "Netherite Halberd",
+  "item.swordish.netherite_glaive" : "Netherite Glaive",
+  "item.swordish.netherite_dualblade" : "Netherite Dualblade",
+
+  "item.tooltip.glaive" : "Critical Multiplier: "
+}

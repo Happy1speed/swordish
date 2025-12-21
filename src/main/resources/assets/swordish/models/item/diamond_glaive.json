@@ -1,0 +1,6 @@
+{
+  "parent": "swordish:item/glaive_item",
+  "textures": {
+    "0": "swordish:item/diamond_glaive"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "swordish:item/halberd_item",
+  "textures": {
+    "0": "swordish:item/netherite_halberd"
+  }
+}

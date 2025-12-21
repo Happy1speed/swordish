@@ -1,0 +1,10 @@
+{
+  "replace": true,
+  "values": [
+    "swordish:golden_halberd",
+    "swordish:iron_halberd",
+    "swordish:diamond_halberd",
+    "swordish:netherite_halberd",
+    "swordish:stone_halberd"
+  ]
+}
