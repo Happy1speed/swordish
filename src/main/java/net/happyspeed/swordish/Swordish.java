@@ -1,6 +1,7 @@
 package net.happyspeed.swordish;
 
 import net.happyspeed.swordish.items.SwordishItems;
+import net.neoforged.fml.ModList;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -62,6 +63,7 @@ public class Swordish {
                 output.accept(SwordishItems.NETHERITE_DUALBLADE.get().getDefaultInstance());
 
             }).build());
+
 
 
 
