@@ -1,6 +1,18 @@
 {
-  "parent": "swordish:item/dualblade_item",
-  "textures": {
-    "0": "swordish:item/netherite_dualblade"
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "swordish:item/netherite_dualblade_in_hand"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "swordish:item/netherite_dualblade_in_inventory"
+    },
+    "ground": {
+      "parent": "swordish:item/netherite_dualblade_in_inventory"
+    },
+    "fixed": {
+      "parent": "swordish:item/netherite_dualblade_in_inventory"
+    }
   }
 }

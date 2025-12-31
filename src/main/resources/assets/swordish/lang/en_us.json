@@ -3,6 +3,10 @@
 
   "swordish.configuration.title": "Swordish Configs",
 
+  "item.swordish.wooden_halberd" : "Wooden Halberd",
+  "item.swordish.wooden_glaive" : "Wooden Glaive",
+  "item.swordish.wooden_dualblade" : "Wooden Dualblade",
+
   "item.swordish.golden_halberd" : "Golden Halberd",
   "item.swordish.golden_glaive" : "Golden Glaive",
   "item.swordish.golden_dualblade" : "Golden Dualblade",

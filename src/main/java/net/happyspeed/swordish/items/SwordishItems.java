@@ -33,6 +33,10 @@ public class SwordishItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Swordish.MODID);
 
+
+
+
+
     public static final DeferredItem<HalberdItem> GOLDEN_HALBERD =
             ITEMS.register("golden_halberd",
                     () -> new HalberdItem(
@@ -192,5 +196,35 @@ public class SwordishItems {
                     )
             );
 
+
+    public static final DeferredItem<HalberdItem> WOODEN_HALBERD =
+            ITEMS.register("wooden_halberd",
+                    () -> new HalberdItem(
+                            Tiers.WOOD,
+                            new Item.Properties()
+                                    .stacksTo(1).attributes(HalberdItem.createAttributes(Tiers.WOOD,HALBERDATTACK, HALBERDSPEED))
+
+                    )
+            );
+
+    public static final DeferredItem<GlaiveItem> WOODEN_GLAIVE =
+            ITEMS.register("wooden_glaive",
+                    () -> new GlaiveItem(
+                            Tiers.WOOD,
+                            new Item.Properties()
+                                    .stacksTo(1).attributes(GlaiveItem.createAttributes(Tiers.WOOD,GLAIVEATTACK, GLAIVESPEED))
+
+                    )
+            );
+
+    public static final DeferredItem<DualbladeItem> WOODEN_DUALBLADE =
+            ITEMS.register("wooden_dualblade",
+                    () -> new DualbladeItem(
+                            Tiers.WOOD,
+                            new Item.Properties()
+                                    .stacksTo(1).attributes(DualbladeItem.createAttributes(Tiers.WOOD,DUALBLADEATTACK, DUALBLADESPEED))
+
+                    )
+            );
 
 }

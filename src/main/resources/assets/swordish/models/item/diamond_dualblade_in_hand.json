@@ -1,19 +1,9 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "#0"
+    "layer0": "swordish:item/diamond_dualblade_in_hand"
   },
   "display": {
-    "ground": {
-      "rotation": [ 0, 0, 0 ],
-      "translation": [ 0, 3, 0],
-      "scale":[ 0.5, 0.5, 0.5 ]
-    },
-    "fixed": {
-      "rotation": [ 0, 0, 0 ],
-      "translation": [ 0, 0, 0],
-      "scale":[ 0.5, 0.5, 0.5 ]
-    },
     "thirdperson_righthand": {
       "rotation": [ 0, 90, 40 ],
       "translation": [ 0, 0, 2 ],

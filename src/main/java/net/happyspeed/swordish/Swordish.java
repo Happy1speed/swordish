@@ -37,6 +37,10 @@ public class Swordish {
             .icon(() -> SwordishItems.GOLDEN_HALBERD.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
 
+                output.accept(SwordishItems.WOODEN_HALBERD.get().getDefaultInstance());
+                output.accept(SwordishItems.WOODEN_GLAIVE.get().getDefaultInstance());
+                output.accept(SwordishItems.WOODEN_DUALBLADE.get().getDefaultInstance());
+
                 output.accept(SwordishItems.GOLDEN_HALBERD.get().getDefaultInstance());
                 output.accept(SwordishItems.GOLDEN_GLAIVE.get().getDefaultInstance());
                 output.accept(SwordishItems.GOLDEN_DUALBLADE.get().getDefaultInstance());

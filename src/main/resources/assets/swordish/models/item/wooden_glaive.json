@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "swordish:item/wooden_glaive_in_hand"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "swordish:item/wooden_glaive_in_inventory"
+    },
+    "ground": {
+      "parent": "swordish:item/wooden_glaive_in_inventory"
+    },
+    "fixed": {
+      "parent": "swordish:item/wooden_glaive_in_inventory"
+    }
+  }
+}

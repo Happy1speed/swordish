@@ -1,6 +1,7 @@
 package net.happyspeed.swordish.items.templates;
 
 import net.happyspeed.swordish.Swordish;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -29,6 +31,8 @@ public class DualbladeItem extends SwordishBase {
     public DualbladeItem(Tier tier, Properties properties) {
         super(tier, properties);
     }
+
+
 
     @Override
     public void onSwing(Player player, Level level) {
