@@ -3,10 +3,12 @@ package net.happyspeed.swordish.items.templates;
 import net.happyspeed.swordish.Swordish;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
@@ -26,6 +28,8 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+
+import static net.minecraft.world.item.enchantment.EnchantmentHelper.doPostAttackEffectsWithItemSource;
 
 public class DualbladeItem extends SwordishBase {
     public DualbladeItem(Tier tier, Properties properties) {
@@ -57,46 +61,53 @@ public class DualbladeItem extends SwordishBase {
 
         boolean hasBeenDamaged = false;
 
-        for (LivingEntity target : targets) {
+        if (level instanceof ServerLevel serverLevel) {
 
-            if (target instanceof ArmorStand) continue;
-            if (target instanceof TamableAnimal tamable && tamable.isOwnedBy(player)) continue;
+            for (LivingEntity target : targets) {
 
-
-            if (!player.hasLineOfSight(target)) continue;
-
-            double distanceSq = player.position().distanceToSqr(target.position());
-            if (distanceSq > radius * radius) continue;
+                if (target instanceof ArmorStand) continue;
+                if (target instanceof TamableAnimal tamable && tamable.isOwnedBy(player)) continue;
 
 
-            Vec3 toTarget = target.position().subtract(player.position()).normalize();
+                if (!player.hasLineOfSight(target)) continue;
+
+                double distanceSq = player.position().distanceToSqr(target.position());
+                if (distanceSq > radius * radius) continue;
 
 
-            double dot = look.dot(toTarget);
-            if (dot < dotThreshold) continue;
+                Vec3 toTarget = target.position().subtract(player.position()).normalize();
 
 
-            float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-            target.hurt(player.damageSources().playerAttack(player), damage);
+                double dot = look.dot(toTarget);
+                if (dot < dotThreshold) continue;
 
-            if (!hasBeenDamaged) {
-                hasBeenDamaged = true;
-                this.stackDamage(player.getMainHandItem(), player);
+
+                float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+                DamageSource source = player.damageSources().playerAttack(player);
+
+                target.hurt(source, damage);
+
+                doPostAttackEffectsWithItemSource(serverLevel, target, source, player.getWeaponItem());
+
+                if (!hasBeenDamaged) {
+                    hasBeenDamaged = true;
+                    this.stackDamage(player.getMainHandItem(), player);
+                }
+
+                level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 0.7F, 1.0F);
+
+
+                Vec3 knock = new Vec3(toTarget.x, 0, toTarget.z).normalize().scale(0.2);
+                target.push(knock.x, 0.03, knock.z);
             }
 
+
+            player.sweepAttack();
+
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 0.7F, 1.0F);
-
-
-            Vec3 knock = new Vec3(toTarget.x, 0, toTarget.z).normalize().scale(0.2);
-            target.push(knock.x, 0.03, knock.z);
+                    SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.6F, 0.9F);
         }
-
-
-        player.sweepAttack();
-
-        level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.6F, 0.9F);
     }
 
 

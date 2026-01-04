@@ -2,6 +2,7 @@
   "replace" : false,
   "values": [
     "#swordish:glaive",
-    "#swordish:halberd"
+    "#swordish:halberd",
+    "#swordish:dualblade"
   ]
 }

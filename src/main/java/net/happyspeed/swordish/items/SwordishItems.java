@@ -27,7 +27,7 @@ public class SwordishItems {
     public static final float GLAIVEATTACK = 2.0f;
 
     public static final float DUALBLADESPEED = -2.2f;
-    public static final float DUALBLADEATTACK = 2.0f;
+    public static final float DUALBLADEATTACK = 3.0f;
 
 
 
