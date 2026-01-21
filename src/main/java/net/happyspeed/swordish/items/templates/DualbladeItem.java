@@ -45,17 +45,17 @@ public class DualbladeItem extends SwordishBase {
             return;
         }
 
-        double radius = 3.0D;
+        double radius = player.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE);
 
         Vec3 look = player.getLookAngle().normalize();
 
 
-        double dotThreshold = Math.cos(Math.toRadians(60));
+        double dotThreshold = Math.cos(Math.toRadians(70));
 
         //get all living entities in a radius around the player, in front!
         List<LivingEntity> targets = level.getEntitiesOfClass(
                 LivingEntity.class,
-                player.getBoundingBox().inflate(radius, 1.0D, radius),
+                player.getBoundingBox().inflate(radius, radius, radius),
                 e -> e != player && e.isAlive()
         );
 
@@ -82,31 +82,21 @@ public class DualbladeItem extends SwordishBase {
                 if (dot < dotThreshold) continue;
 
 
-                float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-                DamageSource source = player.damageSources().playerAttack(player);
-
-                target.hurt(source, damage);
-
-                doPostAttackEffectsWithItemSource(serverLevel, target, source, player.getWeaponItem());
+                target.hurtMarked = true;
+                player.attack(target);
 
                 if (!hasBeenDamaged) {
                     hasBeenDamaged = true;
                     this.stackDamage(player.getMainHandItem(), player);
                 }
 
-                level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                        SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 0.7F, 1.0F);
-
-
-                Vec3 knock = new Vec3(toTarget.x, 0, toTarget.z).normalize().scale(0.2);
-                target.push(knock.x, 0.03, knock.z);
             }
 
 
             player.sweepAttack();
 
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.6F, 0.9F);
+                    SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.3F, 0.9F);
         }
     }
 

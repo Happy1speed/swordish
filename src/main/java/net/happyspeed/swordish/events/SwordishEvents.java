@@ -57,23 +57,6 @@ public class SwordishEvents {
 
 
 
-
-
-
-
-//    @SubscribeEvent
-//    public static void onCriticalHit(CriticalHitEvent event) {
-//        Player player = event.getEntity();
-//        Entity target = event.getTarget();
-//
-//        if (event.isCriticalHit()) {
-//            if (player.getMainHandItem().getItem() instanceof GlaiveItem glaiveItem) {
-//                event.setDamageMultiplier(1.2f);
-//            }
-//        }
-//    }
-
-
     @SubscribeEvent
     public static void onItemAttributes(ItemAttributeModifierEvent event) {
         ItemStack stack = event.getItemStack();
@@ -86,10 +69,10 @@ public class SwordishEvents {
         // Remove vanilla attack speed
         event.removeModifier(Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_ID);
 
-        // Add your custom attack speed (MAINHAND only)
+        // Add custom attack speed
         event.addModifier(
                 Attributes.ATTACK_SPEED,
-                new AttributeModifier(BASE_ATTACK_SPEED_ID, -3.1, AttributeModifier.Operation.ADD_VALUE),
+                new AttributeModifier(BASE_ATTACK_SPEED_ID, -3.3, AttributeModifier.Operation.ADD_VALUE),
                 EquipmentSlotGroup.MAINHAND
         );
     }
